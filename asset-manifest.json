@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/ashwinAlexanderButtonPusher/static/css/main.48f05698.chunk.css",
+    "main.js": "/ashwinAlexanderButtonPusher/static/js/main.07cf54a6.chunk.js",
+    "main.js.map": "/ashwinAlexanderButtonPusher/static/js/main.07cf54a6.chunk.js.map",
+    "runtime-main.js": "/ashwinAlexanderButtonPusher/static/js/runtime-main.61bcc9ee.js",
+    "runtime-main.js.map": "/ashwinAlexanderButtonPusher/static/js/runtime-main.61bcc9ee.js.map",
+    "static/js/2.9d9683b6.chunk.js": "/ashwinAlexanderButtonPusher/static/js/2.9d9683b6.chunk.js",
+    "static/js/2.9d9683b6.chunk.js.map": "/ashwinAlexanderButtonPusher/static/js/2.9d9683b6.chunk.js.map",
+    "index.html": "/ashwinAlexanderButtonPusher/index.html",
+    "precache-manifest.05fdb6ea4d37c123ed56a362e318c124.js": "/ashwinAlexanderButtonPusher/precache-manifest.05fdb6ea4d37c123ed56a362e318c124.js",
+    "service-worker.js": "/ashwinAlexanderButtonPusher/service-worker.js",
+    "static/css/main.48f05698.chunk.css.map": "/ashwinAlexanderButtonPusher/static/css/main.48f05698.chunk.css.map",
+    "static/js/2.9d9683b6.chunk.js.LICENSE.txt": "/ashwinAlexanderButtonPusher/static/js/2.9d9683b6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.61bcc9ee.js",
+    "static/js/2.9d9683b6.chunk.js",
+    "static/css/main.48f05698.chunk.css",
+    "static/js/main.07cf54a6.chunk.js"
+  ]
+}
