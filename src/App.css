@@ -311,6 +311,7 @@ html {
   max-width: 1200px;
   width: 100%;
   margin: 0px auto;
+  border: dotted red 2px;
 }
 
 img {
@@ -330,17 +331,42 @@ img {
   align-items: center;
 }
 
+.loginComponent input[type="text"] {
+  border: 1px solid yellow;
+  padding: 5px;
+  margin-bottom: 10px;
+  font-size: 3rem;
+}
+
+.loginComponent button {
+  font-size: 4rem;
+}
+
 /* typography */
 
 .App {
   text-align: center;
 }
 
-h1 {
-  font-size: 3rem;
+.headerer {
+  margin: auto;
 }
 
-.Login {
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  background-color: yellow;
+}
+
+ul li {
+  font-size: 3rem;
+  text-align: center;
+  padding: 5px;
+}
+
+p {
+  font-size: 3rem;
+  text-align: center;
 }
 
 .App-logo {
