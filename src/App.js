@@ -55,7 +55,7 @@ class App extends Component {
   render() {
     return (
       <div className="App wrapper">
-        {/* <h1>the button</h1>
+        <h1>the button</h1>
         <div className="headerer">
           <ul>
             <li>the button can only be clicked once.</li>
@@ -64,7 +64,7 @@ class App extends Component {
             <li>be advised there are impatient bots.</li>
           </ul>
         </div>
-        <Login /> */}
+        <Login />
         <Timer />
       </div>
     );
