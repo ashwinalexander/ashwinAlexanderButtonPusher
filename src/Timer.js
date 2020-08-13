@@ -7,10 +7,10 @@ class Timer extends Component {
       secondsVal: 60, //the timer will countdown from this value
       botInterrupt: this.generateWeightedRandomValue(), //an impatient bot will interrupt the countdown at this value
     };
+    console.log(this.state.botInterrupt);
   }
 
   componentDidMount() {
-    // this.timerID = setInterval(() => this.oldtick(), 1000);
     this.secondVal = setInterval(() => this.tick(), 1000);
   }
 
@@ -18,9 +18,10 @@ class Timer extends Component {
     clearInterval(this.timerID);
   }
 
-  formatForDisplay(timer) {
-    let minutes = parseInt(timer / 60, 10);
-    let seconds = parseInt(timer % 60, 10);
+  //ref: https://stackoverflow.com/questions/20618355/the-simplest-possible-javascript-countdown-timer
+  formatForDisplay(countDown) {
+    let minutes = parseInt(countDown / 60, 10);
+    let seconds = parseInt(countDown % 60, 10);
 
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -28,28 +29,34 @@ class Timer extends Component {
     return minutes + ":" + seconds;
   }
 
-  //the impatient bots are more likely (9 times out of 10) to show up between 55 and 41 secs
-  //the impatient bots are less likely (1 times out of 10) to show up between 55 and 1 secs
+  //logic to generate a random time at which the impatient bot will reset the timer
   generateWeightedRandomValue() {
     //first pick a number between 0 and 59
     let randomValue = Math.floor(Math.random() * 60);
 
-    //next, if the value is greater than 6 seconds, return a random number between 55 and 41 secs
-    //if the value is lesser than 6 seconds, return a random number between 59 and 1 secs
+    //a random value that is more likely to be between 41 and 55 secs
     let weightedRandomValue =
       randomValue > 6
         ? Math.floor(Math.random() * (55 - 41 + 1) + 41)
         : Math.floor(Math.random() * (55 - 1 + 1) + 1);
+    console.log("bot interrupt:" + weightedRandomValue);
+
     return weightedRandomValue;
   }
 
-  assignRandomValue(num) {
-    return num === this.botInterrupt ? 60 : num - 1;
+  countdownOrReset(num) {
+    if (num === this.state.botInterrupt) {
+      num = 60;
+      this.setState({ botInterrupt: this.generateWeightedRandomValue() });
+    } else {
+      num--;
+    }
+    return num;
   }
 
   tick() {
     this.setState({
-      secondsVal: this.assignRandomValue(this.state.secondsVal),
+      secondsVal: this.countdownOrReset(this.state.secondsVal),
     });
   }
 
@@ -57,7 +64,7 @@ class Timer extends Component {
     return (
       <div>
         <h1>Hello, timer world!</h1>
-        <h2>It is {this.state.secondsVal}.</h2>
+        <h2>It is {this.formatForDisplay(this.state.secondsVal)} </h2>
       </div>
     );
   }
