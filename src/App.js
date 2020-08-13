@@ -35,7 +35,12 @@ class App extends Component {
     super();
     this.state = {
       username: "",
+      isLoggedIn: true,
     };
+  }
+
+  handleLoginClick() {
+    this.setState({ isLoggedIn: true });
   }
 
   componentDidMount() {
@@ -56,18 +61,12 @@ class App extends Component {
   render() {
     return (
       <div className="App wrapper">
-        <h1>the button</h1>
-        <div className="headerer">
-          <ul>
-            <li>the button can only be clicked once.</li>
-            <li>the button demands patience.</li>
-            <li>your patience will be rewarded</li>
-            <li>be advised there are impatient bots.</li>
-          </ul>
-        </div>
-        <Login />
-        <Timer />
-        <HighScores />
+        <h1>the button header</h1>
+        {/* show the login component on page load and if the name hasn't been entered*/}
+        {this.state.isLoggedIn ? "" : <Login />}
+        {/* show the Timer component next along with previous High Scores*/}
+        {this.state.isLoggedIn ? <Timer /> : null}
+        {this.state.isLoggedIn ? <HighScores /> : null}
       </div>
     );
   }
