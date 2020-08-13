@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Login from "./Login";
 import "./App.css";
 import Timer from "./Timer";
+import HighScores from "./HighScores";
 
 //pseudo code
 //component 1: take in name, provide instructions, press START, pass name to component 2
@@ -66,6 +67,7 @@ class App extends Component {
         </div>
         <Login />
         <Timer />
+        <HighScores />
       </div>
     );
   }

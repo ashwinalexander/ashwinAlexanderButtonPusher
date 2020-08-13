@@ -44,6 +44,7 @@ class Timer extends Component {
     return weightedRandomValue;
   }
 
+  //Countdown unless the timer matches the "interrupt" time in which case reset
   countdownOrReset(num) {
     if (num === this.state.botInterrupt) {
       num = 60;
@@ -63,8 +64,8 @@ class Timer extends Component {
   render() {
     return (
       <div>
-        <h1>Hello, timer world!</h1>
-        <h2>It is {this.formatForDisplay(this.state.secondsVal)} </h2>
+        <h1>It is {this.formatForDisplay(this.state.secondsVal)} </h1>
+        <button>CLICK</button>
       </div>
     );
   }
