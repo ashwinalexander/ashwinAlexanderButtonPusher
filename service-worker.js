@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ashwinAlexanderButtonPusher/precache-manifest.5df6f262b2f1b5a2ebeb958717177a0b.js"
+  "/ashwinAlexanderButtonPusher/precache-manifest.3c5b1083f5a9a8e6532a0b29ec3dce93.js"
 );
 
 self.addEventListener('message', (event) => {
