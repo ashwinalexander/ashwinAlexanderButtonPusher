@@ -10,23 +10,28 @@ class HighScores extends Component {
   }
 
   componentDidMount() {
-    const dbRef = firebase.database().ref();
+    const dbRef = firebase.database().ref("users");
 
-    dbRef.on("value", (snapshot) => {
-      const data = snapshot.val();
-      const latestHighScores = []; //temp array to store high scores
+    dbRef
+      .orderByChild("score")
+      .limitToLast(10) //only get the highest 10 scores
+      .on("value", (snapshot) => {
+        const data = snapshot.val();
+        const latestHighScorers = [];
 
-      for (let score in data) {
-        const scoreObject = {
-          id: score,
-          scoreValue: data[score],
-        };
-        latestHighScores.push(scoreObject);
-      }
-      this.setState({
-        highScores: latestHighScores,
+        for (let propertyName in data) {
+          const highScorerObject = {
+            id: propertyName,
+            user: data[propertyName],
+          };
+
+          latestHighScorers.push(highScorerObject);
+        }
+
+        this.setState({
+          highScores: latestHighScorers,
+        });
       });
-    });
   }
 
   render() {
@@ -38,7 +43,7 @@ class HighScores extends Component {
             return (
               <li key={oneOfMyScores.id}>
                 <p>
-                  {oneOfMyScores.id} - {oneOfMyScores.scoreValue}
+                  {oneOfMyScores.user.name} - {oneOfMyScores.user.score}
                 </p>
                 ​ ​
               </li>

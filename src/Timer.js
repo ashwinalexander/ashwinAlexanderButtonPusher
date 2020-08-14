@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from "./Firebase";
 
 class Timer extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class Timer extends Component {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    return minutes + ":" + seconds;
+    return minutes + ":" + seconds + this.state.message;
   }
 
   //logic to generate a random time at which the impatient bot will reset the timer
@@ -65,10 +66,6 @@ class Timer extends Component {
 
   //the player clicked the button!
   handleClick = (event) => {
-    // this.setState({
-    //   secondsVal: 60,
-    //   botInterrupt: this.generateWeightedRandomValue(),
-    // });
     clearInterval(this.secondVal);
     this.setState({
       message:
@@ -77,6 +74,9 @@ class Timer extends Component {
         (60 - this.state.secondsVal) +
         "points",
     });
+
+    //Saving name and score to Firebase
+    this.saveScoreToDB(this.props.value, 60 - this.state.secondsVal);
   };
 
   tick() {
@@ -85,12 +85,19 @@ class Timer extends Component {
     });
   }
 
+  saveScoreToDB(name, score) {
+    const dbRef = firebase.database().ref();
+    let usersRef = dbRef.child("users");
+
+    usersRef.push({ name, score });
+  }
+
   render() {
     return (
       <div>
         <h1>It is {this.formatForDisplay(this.state.secondsVal)} </h1>
         <h1>It is {this.props.value} </h1>
-        <h1>It is {this.state.message} </h1>
+
         <button onClick={this.handleClick}>CLICK</button>
       </div>
     );
