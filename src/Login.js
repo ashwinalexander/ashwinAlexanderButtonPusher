@@ -4,25 +4,30 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
+      playerName: "", //saving the input player name to state
     };
   }
 
+  //input textbox change
   handleChange = (event) => {
+    console.log("coming here to handle change");
     this.setState({
-      username: event.target.value,
+      playerName: event.target.value,
     });
-
     this.props.onValChange(event.target.value);
   };
 
+  //on button submit
   handleSubmit = (event) => {
+    if (this.state.playerName.trim().length < 3) {
+      return; //client side validation will show prompt
+    }
     event.preventDefault();
-    this.props.onSubmit(this.state.username);
+    this.props.onSubmit(this.state.playerName);
   };
 
   render() {
-    const userName = this.props.username;
+    const userName = this.props.userName;
     return (
       <div className="loginComponent">
         <div>
@@ -34,20 +39,24 @@ class Login extends Component {
           </ul>
         </div>
         <div className="flexColumn">
-          <form action="submit" className="flexColumn">
-            <label htmlFor="playerName">Enter Name:</label>
-            {/* use anonymous functions if passing arguments */}
+          <form
+            action="submit"
+            className="flexColumn"
+            onSubmit={(e) => e.preventDefault()}
+          >
+            <label htmlFor="enterPlayerName">Enter Name:</label>
             <input
               onChange={this.handleChange}
               placeholder="enter name"
               //error handling and name validation
               pattern="^[A-Za-z0-9]{3,}$"
-              title="Please enter an alphanumeric value with at least three characters"
+              title="enter alphanumeric values with at least three characters"
               value={userName}
               type="text"
-              id="playerName"
+              id="enterPlayerName"
               required
             />
+            <label htmlFor="adadad">dddd</label>
             <button onClick={this.handleSubmit}>START</button>
           </form>
         </div>

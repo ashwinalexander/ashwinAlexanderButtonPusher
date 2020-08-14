@@ -17,7 +17,6 @@ class App extends Component {
 
   //set isLoggedIn to true after a name has been entered
   handleLoginClick(newUserName) {
-    console.log("coming here");
     this.setState({
       isLoggedIn: false,
       username: newUserName,
@@ -32,13 +31,12 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {}
-
   render() {
     const userName = this.state.username;
     return (
       <div className="App wrapper">
         <h1>Welcome to The Button</h1>
+
         {/* show the login component on page load and if the name hasn't been entered*/}
         {this.state.isLoggedIn ? (
           ""
