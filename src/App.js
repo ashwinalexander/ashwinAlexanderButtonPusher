@@ -8,6 +8,7 @@ class App extends Component {
   constructor() {
     super();
     this.handleLoginClick = this.handleLoginClick.bind(this);
+    this.handleSubmitclick = this.handleSubmitclick.bind(this);
     this.state = {
       username: "",
       isLoggedIn: false,
@@ -16,8 +17,17 @@ class App extends Component {
 
   //set isLoggedIn to true after a name has been entered
   handleLoginClick(newUserName) {
+    console.log("coming here");
     this.setState({
       isLoggedIn: false,
+      username: newUserName,
+    });
+  }
+
+  //set isLoggedIn to true after a name has been entered
+  handleSubmitclick(newUserName) {
+    this.setState({
+      isLoggedIn: true,
       username: newUserName,
     });
   }
@@ -33,11 +43,15 @@ class App extends Component {
         {this.state.isLoggedIn ? (
           ""
         ) : (
-          <Login value={userName} onValChange={this.handleLoginClick} />
+          <Login
+            value={userName}
+            onValChange={this.handleLoginClick}
+            onSubmit={this.handleSubmitclick}
+          />
         )}
 
         {/* show the Timer component next along with previous High Scores*/}
-        {this.state.isLoggedIn ? <Timer value={this.state.username} /> : null}
+        {true ? <Timer value={this.state.username} /> : null}
         {this.state.isLoggedIn ? <HighScores /> : null}
       </div>
     );

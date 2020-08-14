@@ -3,11 +3,22 @@ import React, { Component } from "react";
 class Login extends Component {
   constructor() {
     super();
-    //this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      username: "",
+    };
   }
 
   handleChange = (event) => {
+    this.setState({
+      username: event.target.value,
+    });
+
     this.props.onValChange(event.target.value);
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.onSubmit(this.state.username);
   };
 
   render() {
@@ -29,7 +40,7 @@ class Login extends Component {
             <input
               onChange={this.handleChange}
               placeholder="enter name"
-              // value={this.props.value}
+              //error handling and name validation
               pattern="^[A-Za-z0-9]{3,}$"
               title="Please enter an alphanumeric value with at least three characters"
               value={userName}
@@ -37,7 +48,7 @@ class Login extends Component {
               id="playerName"
               required
             />
-            <button onClick={this.props.onClick}>START</button>
+            <button onClick={this.handleSubmit}>START</button>
           </form>
         </div>
       </div>

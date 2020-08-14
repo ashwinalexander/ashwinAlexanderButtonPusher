@@ -65,6 +65,7 @@ class Timer extends Component {
     return (
       <div>
         <h1>It is {this.formatForDisplay(this.state.secondsVal)} </h1>
+        <h1>It is {this.props.value} </h1>
         <button>CLICK</button>
       </div>
     );
