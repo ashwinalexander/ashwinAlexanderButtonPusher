@@ -49,7 +49,7 @@ class App extends Component {
         )}
 
         {/* show the Timer component next along with previous High Scores*/}
-        {true ? <Timer value={this.state.username} /> : null}
+        {this.state.isLoggedIn ? <Timer value={this.state.username} /> : null}
         {this.state.isLoggedIn ? <HighScores /> : null}
       </div>
     );

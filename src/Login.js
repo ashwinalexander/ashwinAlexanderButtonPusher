@@ -44,11 +44,11 @@ class Login extends Component {
             className="flexColumn"
             onSubmit={(e) => e.preventDefault()}
           >
-            <label htmlFor="enterPlayerName">Enter Name:</label>
+            <label htmlFor="enterPlayerName">ENTER YOUR NAME</label>
             <input
               onChange={this.handleChange}
-              placeholder="enter name"
-              //error handling and name validation
+              placeholder="enter your name"
+              //client-side player name validation
               pattern="^[A-Za-z0-9]{3,}$"
               title="enter alphanumeric values with at least three characters"
               value={userName}
@@ -56,7 +56,6 @@ class Login extends Component {
               id="enterPlayerName"
               required
             />
-            <label htmlFor="adadad">dddd</label>
             <button onClick={this.handleSubmit}>START</button>
           </form>
         </div>
