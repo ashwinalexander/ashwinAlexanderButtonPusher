@@ -17,7 +17,7 @@ class Login extends Component {
     this.props.onValChange(event.target.value);
   };
 
-  //on button submit
+  //on button click
   handleSubmit = (event) => {
     if (this.state.playerName.trim().length < 3) {
       return; //client side validation will show prompt

@@ -34,10 +34,10 @@ class Timer extends Component {
     //first pick a number between 0 and 59
     let randomValue = Math.floor(Math.random() * 60);
 
-    //a random value that is more likely to be between 41 and 55 secs
+    //a random value that is more likely to be between 43 and 55 secs
     let weightedRandomValue =
       randomValue > 6
-        ? Math.floor(Math.random() * (55 - 41 + 1) + 41)
+        ? Math.floor(Math.random() * (55 - 43 + 1) + 43)
         : Math.floor(Math.random() * (55 - 1 + 1) + 1);
     console.log("bot interrupt:" + weightedRandomValue);
 
@@ -55,6 +55,15 @@ class Timer extends Component {
     return num;
   }
 
+  //the player clicked the button!
+  handleClick = (event) => {
+    this.setState({
+      secondsVal: 60,
+      botInterrupt: this.generateWeightedRandomValue(),
+    });
+    console.log("reset");
+  };
+
   tick() {
     this.setState({
       secondsVal: this.countdownOrReset(this.state.secondsVal),
@@ -66,7 +75,7 @@ class Timer extends Component {
       <div>
         <h1>It is {this.formatForDisplay(this.state.secondsVal)} </h1>
         <h1>It is {this.props.value} </h1>
-        <button>CLICK</button>
+        <button onClick={this.handleClick}>CLICK</button>
       </div>
     );
   }
