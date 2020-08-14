@@ -29,22 +29,6 @@ class Login extends Component {
     const userName = this.props.userName;
     return (
       <div className="loginComponent">
-        <div>
-          <ul>
-            <li>
-              You will soon meet
-              <span class="stylisedButton"> the button</span> and a countdown
-              timer.
-            </li>
-
-            <li>
-              Press <span class="stylisedButton">the button</span> when you wish
-              ... but not too soon.
-            </li>
-            <li>The button can only be pressed once.</li>
-            <li>Be warned, there are bots who might reset the timer.</li>
-          </ul>
-        </div>
         <div className="flexColumn">
           <form
             action="submit"
@@ -64,6 +48,26 @@ class Login extends Component {
             />
             <button onClick={this.handleSubmit}>START</button>
           </form>
+        </div>
+        <div>
+          <ul>
+            <li>
+              You will soon meet
+              <span class="stylisedButton"> the button</span> and a countdown
+              timer.
+            </li>
+
+            <li>
+              Press <span class="stylisedButton">the button</span> whenever you
+              wish ... but not too soon.
+            </li>
+            <li>The button can only be pressed once.</li>
+            <li>Be warned, there are bots who might reset the timer.</li>
+            <li>
+              Your score will be inversely proportional to how fast you press
+              the button.
+            </li>
+          </ul>
         </div>
       </div>
     );
