@@ -34,8 +34,10 @@ class App extends Component {
   render() {
     const userName = this.state.username;
     return (
-      <div className="App wrapper">
-        <h1>Welcome to The Button</h1>
+      <div className="appComponent wrapper">
+        <nav>
+          <h1>(Do Not) Press The Button</h1>
+        </nav>
 
         {/* show the login component on page load and if the name hasn't been entered*/}
         {this.state.isLoggedIn ? (

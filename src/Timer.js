@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "./Firebase";
 
+//the Tiner component - visible once the player enters his name and "logs in"
 class Timer extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +10,6 @@ class Timer extends Component {
       botInterrupt: this.generateWeightedRandomValue(), //an impatient bot will interrupt the countdown at this value
       message: "",
     };
-    console.log(this.state.botInterrupt);
   }
 
   componentDidMount() {
@@ -41,7 +41,6 @@ class Timer extends Component {
       randomValue > 6
         ? Math.floor(Math.random() * (55 - 43 + 1) + 43)
         : Math.floor(Math.random() * (55 - 1 + 1) + 1);
-    console.log("bot interrupt:" + weightedRandomValue);
 
     return weightedRandomValue;
   }
@@ -94,7 +93,7 @@ class Timer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="countDownTimer wrapper">
         <h1>It is {this.formatForDisplay(this.state.secondsVal)} </h1>
         <h1>It is {this.props.value} </h1>
 

@@ -10,7 +10,6 @@ class Login extends Component {
 
   //input textbox change
   handleChange = (event) => {
-    console.log("coming here to handle change");
     this.setState({
       playerName: event.target.value,
     });
@@ -32,10 +31,18 @@ class Login extends Component {
       <div className="loginComponent">
         <div>
           <ul>
-            <li>the button can only be clicked once.</li>
-            <li>the button demands patience.</li>
-            <li>your patience will be rewarded</li>
-            <li>be advised there are impatient bots.</li>
+            <li>
+              You will soon meet
+              <span class="stylisedButton"> the button</span> and a countdown
+              timer.
+            </li>
+
+            <li>
+              Press <span class="stylisedButton">the button</span> when you wish
+              ... but not too soon.
+            </li>
+            <li>The button can only be pressed once.</li>
+            <li>Be warned, there are bots who might reset the timer.</li>
           </ul>
         </div>
         <div className="flexColumn">
@@ -44,10 +51,9 @@ class Login extends Component {
             className="flexColumn"
             onSubmit={(e) => e.preventDefault()}
           >
-            <label htmlFor="enterPlayerName">ENTER YOUR NAME</label>
+            <label htmlFor="enterPlayerName">ENTER PLAYER NAME</label>
             <input
               onChange={this.handleChange}
-              placeholder="enter your name"
               //client-side player name validation
               pattern="^[A-Za-z0-9]{3,}$"
               title="enter alphanumeric values with at least three characters"

@@ -1,3 +1,5 @@
+/* setup styles */
+
 a,
 abbr,
 acronym,
@@ -273,15 +275,6 @@ textarea {
   padding: 0.2em 0;
 }
 
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: "";
-  clear: both;
-  height: 0;
-}
-
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -301,7 +294,7 @@ textarea {
   overflow: hidden;
 }
 
-/* settings this up */
+/* setup styles */
 
 html {
   font-size: 62.5%;
@@ -311,7 +304,7 @@ html {
   max-width: 1200px;
   width: 100%;
   margin: 0px auto;
-  border: dotted red 2px;
+  border: dotted white 2px;
 }
 
 img {
@@ -331,6 +324,123 @@ img {
   align-items: center;
 }
 
+/* typography */
+
+/* google web fonts - Press Start 2P and Space Mono*/
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap");
+
+h1 {
+  font-size: 3.2rem;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  color: #fafafa;
+  text-transform: uppercase;
+}
+
+h2,
+h3,
+p,
+ul li {
+  font-size: 2rem;
+  text-align: center;
+  font-family: "Space Mono", monospace;
+  font-family: "Press Start 2P", cursive;
+  color: #fafafa;
+}
+
+.appComponent {
+  background-color: #ffd25a;
+}
+
+.appComponent nav {
+  background-color: #ff785a;
+  color: #fafafa;
+}
+
+.appComponent ul {
+  margin: 6rem;
+  list-style-type: circle;
+}
+
+.appComponent ul li {
+  color: #191919;
+  text-align: left;
+  font-size: 2.9rem;
+  padding: 5px;
+  line-height: 2.9rem;
+  letter-spacing: 0.1rem;
+  font-family: "Press Start 2P", cursive;
+  font-family: "Space Mono", monospace;
+}
+
+.appComponent form {
+  background-color: #fff05a;
+  padding: 2rem;
+  width: 100%;
+}
+
+.appComponent input[type="text"] {
+  background-color: #fafafa;
+  color: #495057;
+  padding: 2rem;
+  text-align: left;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.4rem;
+  margin: 0px;
+}
+
+.appComponent label {
+  color: #191919;
+  font-family: "Press Start 2P", cursive;
+  font-size: 2rem;
+  padding: 10px;
+}
+
+.appComponent button {
+  background-color: #ff785a;
+  color: #fafafa;
+  padding: 10px 20px;
+  font-family: "Press Start 2P", cursive;
+}
+
+.stylisedButton {
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3.2rem;
+  padding: 10px;
+  text-align: center;
+  background-color: #ff785a;
+  font-family: "Space Mono", monospace;
+  font-family: "Press Start 2P", cursive;
+  color: #fafafa;
+}
+
+p {
+  font-size: 3rem;
+  text-align: center;
+}
+
+.loginComponent button {
+  animation: pulse infinite 4s linear;
+}
+
+/* pulse animation for the buttons */
+@keyframes pulse {
+  0% {
+    transform: scale(0.93);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.93);
+  }
+}
+
 .loginComponent input[type="text"] {
   border: 1px solid yellow;
   padding: 5px;
@@ -340,66 +450,4 @@ img {
 
 .loginComponent button {
   font-size: 4rem;
-}
-
-/* typography */
-
-.App {
-  text-align: center;
-}
-
-.headerer {
-  margin: auto;
-}
-
-h1 {
-  font-size: 3rem;
-  text-align: center;
-  background-color: yellow;
-}
-
-ul li {
-  font-size: 3rem;
-  text-align: center;
-  padding: 5px;
-}
-
-p {
-  font-size: 3rem;
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

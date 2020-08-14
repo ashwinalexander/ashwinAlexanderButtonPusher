@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "./Firebase";
 
+//the High Scores component - visible once the player enters his name and "logs in"
 class HighScores extends Component {
   constructor() {
     super();
@@ -36,7 +37,7 @@ class HighScores extends Component {
 
   render() {
     return (
-      <div className="App wrapper">
+      <div className="highScores wrapper">
         <h1>High Scores</h1>​ ​
         <ul>
           {this.state.highScores.map((oneOfMyScores) => {

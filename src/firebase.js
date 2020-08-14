@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/database";
 
+//connecting to the firebase data store
 const firebaseConfig = {
   apiKey: "AIzaSyDiBZB5Uw7mgcJoFpRh0wSKU-ItAmVczvk",
   authDomain: "button-game-6b89f.firebaseapp.com",
@@ -14,6 +15,5 @@ const firebaseConfig = {
 
 // initialize firebase
 firebase.initializeApp(firebaseConfig);
-//firebase.analytics();
 
 export default firebase;
