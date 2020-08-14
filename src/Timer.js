@@ -52,7 +52,7 @@ class Timer extends Component {
       num = 60;
       this.setState({
         botInterrupt: this.generateWeightedRandomValue(),
-        message: "an impatient bot reset the timer",
+        message: "an impatient bot reset the timer!",
       });
     } else {
       num--;

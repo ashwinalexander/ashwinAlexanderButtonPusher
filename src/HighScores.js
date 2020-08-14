@@ -37,8 +37,8 @@ class HighScores extends Component {
 
   render() {
     return (
-      <div className="highScores wrapper">
-        <h1>High Scores</h1>​ ​
+      <div className="scoreComponent">
+        <h3>High Scores</h3>​ ​
         <ul>
           {this.state.highScores.map((oneOfMyScores) => {
             return (
@@ -51,6 +51,7 @@ class HighScores extends Component {
             );
           })}
         </ul>
+        <h3>Note: Top 10 scores appear in real-time in the list above</h3>​ ​
       </div>
     );
   }

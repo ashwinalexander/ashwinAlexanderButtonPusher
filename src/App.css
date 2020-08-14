@@ -448,8 +448,31 @@ ul li {
   font-size: 4.5rem;
 }
 
+.timerComponent div {
+  padding: 1rem;
+}
+
 .timerComponent .messageHolder h3 {
   font-size: 2rem;
+}
+
+/* styling for the High Scores page */
+.scoreComponent {
+  background-color: #ffd25a;
+  color: #191919;
+}
+
+.scoreComponent h3 {
+  color: #191919;
+  padding: 1rem;
+  text-transform: uppercase;
+}
+
+.scoreComponent ul li p {
+  color: #191919;
+  padding-left: 3rem;
+  font-size: 2rem;
+  text-align: left;
 }
 
 /* pulse animation for the buttons */
