@@ -6,6 +6,7 @@ class Timer extends Component {
     this.state = {
       secondsVal: 60, //the timer will countdown from this value
       botInterrupt: this.generateWeightedRandomValue(), //an impatient bot will interrupt the countdown at this value
+      message: "",
     };
     console.log(this.state.botInterrupt);
   }
@@ -48,20 +49,34 @@ class Timer extends Component {
   countdownOrReset(num) {
     if (num === this.state.botInterrupt) {
       num = 60;
-      this.setState({ botInterrupt: this.generateWeightedRandomValue() });
+      this.setState({
+        botInterrupt: this.generateWeightedRandomValue(),
+        message: "an impatient bot reset the timer",
+      });
     } else {
       num--;
+    }
+    //clear any messages after three seconds
+    if (num === 57) {
+      this.setState({ message: "" });
     }
     return num;
   }
 
   //the player clicked the button!
   handleClick = (event) => {
+    // this.setState({
+    //   secondsVal: 60,
+    //   botInterrupt: this.generateWeightedRandomValue(),
+    // });
+    clearInterval(this.secondVal);
     this.setState({
-      secondsVal: 60,
-      botInterrupt: this.generateWeightedRandomValue(),
+      message:
+        this.props.value +
+        "you scored " +
+        (60 - this.state.secondsVal) +
+        "points",
     });
-    console.log("reset");
   };
 
   tick() {
@@ -75,6 +90,7 @@ class Timer extends Component {
       <div>
         <h1>It is {this.formatForDisplay(this.state.secondsVal)} </h1>
         <h1>It is {this.props.value} </h1>
+        <h1>It is {this.state.message} </h1>
         <button onClick={this.handleClick}>CLICK</button>
       </div>
     );
