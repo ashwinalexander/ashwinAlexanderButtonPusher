@@ -304,7 +304,6 @@ html {
   max-width: 1200px;
   width: 100%;
   margin: 0px auto;
-  border: dotted white 2px;
 }
 
 img {
@@ -330,6 +329,7 @@ img {
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap");
 
 h1 {
+  padding: 10px;
   font-size: 3.2rem;
   text-align: center;
   font-family: "Press Start 2P", cursive;
@@ -343,18 +343,26 @@ p,
 ul li {
   font-size: 2rem;
   text-align: center;
-  font-family: "Space Mono", monospace;
+
   font-family: "Press Start 2P", cursive;
   color: #fafafa;
 }
 
-.appComponent {
-  background-color: #ffd25a;
-}
-
+/* styles for the App component */
 .appComponent nav {
   background-color: #ff785a;
   color: #fafafa;
+}
+
+/* styles for the Login component */
+
+.loginComponent {
+  background-color: #ffd25a;
+  margin-bottom: 5rem;
+}
+
+.loginComponent .instructions {
+  padding-bottom: 2rem;
 }
 
 .loginComponent ul {
@@ -365,11 +373,11 @@ ul li {
 .loginComponent ul li {
   color: #191919;
   text-align: left;
-  font-size: 2.9rem;
+  font-size: 2.7rem;
   padding: 5px;
   line-height: 2.9rem;
   letter-spacing: 0.1rem;
-  font-family: "Press Start 2P", cursive;
+
   font-family: "Space Mono", monospace;
 }
 
@@ -400,6 +408,8 @@ ul li {
   color: #fafafa;
   padding: 10px 20px;
   font-family: "Press Start 2P", cursive;
+  font-size: 4rem;
+  animation: pulse infinite 4s linear;
 }
 
 .stylisedButton {
@@ -413,27 +423,33 @@ ul li {
   font-size: 3rem;
 }
 
-.loginComponent button {
-  font-size: 4rem;
+/* styling for the timer component */
+
+.timerComponent {
+  background-color: #fff05a;
 }
 
-h1 {
-  font-size: 3.2rem;
-  padding: 10px;
-  text-align: center;
+.timerComponent button {
   background-color: #ff785a;
-  font-family: "Space Mono", monospace;
-  font-family: "Press Start 2P", cursive;
   color: #fafafa;
-}
-
-p {
-  font-size: 3rem;
-  text-align: center;
-}
-
-.loginComponent button {
+  padding: 10px 20px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4rem;
   animation: pulse infinite 4s linear;
+}
+
+.timerComponent .timerDisplay h2,
+.timerComponent .messageHolder h3 {
+  background-color: #fafafa;
+  color: #191919;
+  padding: 10px 20px;
+  margin: 2rem;
+  font-family: "Press Start 2P", cursive;
+  font-size: 4.5rem;
+}
+
+.timerComponent .messageHolder h3 {
+  font-size: 2rem;
 }
 
 /* pulse animation for the buttons */

@@ -8,7 +8,8 @@ class Timer extends Component {
     this.state = {
       secondsVal: 60, //the timer will countdown from this value
       botInterrupt: this.generateWeightedRandomValue(), //an impatient bot will interrupt the countdown at this value
-      message: "",
+      message: "-",
+      isGameOn: true,
     };
   }
 
@@ -28,7 +29,7 @@ class Timer extends Component {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    return minutes + ":" + seconds + this.state.message;
+    return minutes + ":" + seconds;
   }
 
   //logic to generate a random time at which the impatient bot will reset the timer
@@ -58,7 +59,7 @@ class Timer extends Component {
     }
     //clear any messages after three seconds
     if (num === 57) {
-      this.setState({ message: "" });
+      this.setState({ message: "-" });
     }
     return num;
   }
@@ -69,13 +70,18 @@ class Timer extends Component {
     this.setState({
       message:
         this.props.value +
-        "you scored " +
-        (60 - this.state.secondsVal) +
-        "points",
+        ", you scored " +
+        (60 - this.state.secondsVal) * 100 +
+        " points",
     });
 
-    //Saving name and score to Firebase
-    this.saveScoreToDB(this.props.value, 60 - this.state.secondsVal);
+    if (this.state.isGameOn) {
+      //Saving name and score to Firebase - this will only happen once.
+      this.saveScoreToDB(this.props.value, (60 - this.state.secondsVal) * 100);
+      this.setState({
+        isGameOn: false,
+      });
+    }
   };
 
   tick() {
@@ -93,11 +99,18 @@ class Timer extends Component {
 
   render() {
     return (
-      <div className="countDownTimer wrapper">
-        <h1>It is {this.formatForDisplay(this.state.secondsVal)} </h1>
-        <h1>It is {this.props.value} </h1>
-
-        <button onClick={this.handleClick}>CLICK</button>
+      <div className="timerComponent">
+        <div className="flexColumn">
+          <div className="timerDisplay">
+            <h2>{this.formatForDisplay(this.state.secondsVal)} </h2>
+          </div>
+          <div className="buttonHolder">
+            <button onClick={this.handleClick}>CLICK</button>
+          </div>
+          <div className="messageHolder">
+            <h3> {this.state.message} </h3>
+          </div>
+        </div>
       </div>
     );
   }

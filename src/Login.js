@@ -49,7 +49,7 @@ class Login extends Component {
             <button onClick={this.handleSubmit}>START</button>
           </form>
         </div>
-        <div>
+        <div class="instructions">
           <ul>
             <li>
               You will soon meet
@@ -61,11 +61,14 @@ class Login extends Component {
               Press <span class="stylisedButton">the button</span> whenever you
               wish ... but not too soon.
             </li>
-            <li>The button can only be pressed once.</li>
+            <li>
+              <span class="stylisedButton">The button</span> can only be pressed
+              once.
+            </li>
             <li>Be warned, there are bots who might reset the timer.</li>
             <li>
               Your score will be inversely proportional to how fast you press
-              the button.
+              <span class="stylisedButton"> The button</span>.
             </li>
           </ul>
         </div>
