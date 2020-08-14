@@ -3,19 +3,15 @@ import React, { Component } from "react";
 class Login extends Component {
   constructor() {
     super();
-    this.state = {
-      name: "",
-    };
+    //this.handleChange = this.handleChange.bind(this);
   }
 
-  // handleChange = (event) => {
-  //   this.setState({
-  //     {this.props.text}: event.target.value,
-
-  //   });
-  // };
+  handleChange = (event) => {
+    this.props.onValChange(event.target.value);
+  };
 
   render() {
+    const userName = this.props.username;
     return (
       <div className="loginComponent">
         <div>
@@ -31,10 +27,12 @@ class Login extends Component {
             <label htmlFor="playerName">Enter Name:</label>
             {/* use anonymous functions if passing arguments */}
             <input
-              //onChange={this.handleChange}
+              onChange={this.handleChange}
               placeholder="enter name"
               // value={this.props.value}
-              value={this.props.text}
+              pattern="^[A-Za-z0-9]{3,}$"
+              title="Please enter an alphanumeric value with at least three characters"
+              value={userName}
               type="text"
               id="playerName"
               required

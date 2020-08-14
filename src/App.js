@@ -7,6 +7,7 @@ import HighScores from "./HighScores";
 class App extends Component {
   constructor() {
     super();
+    this.handleLoginClick = this.handleLoginClick.bind(this);
     this.state = {
       username: "",
       isLoggedIn: false,
@@ -14,16 +15,17 @@ class App extends Component {
   }
 
   //set isLoggedIn to true after a name has been entered
-  handleLoginClick() {
+  handleLoginClick(newUserName) {
     this.setState({
-      isLoggedIn: true,
-      username: this.state.username,
+      isLoggedIn: false,
+      username: newUserName,
     });
   }
 
   componentDidMount() {}
 
   render() {
+    const userName = this.state.username;
     return (
       <div className="App wrapper">
         <h1>Welcome to The Button</h1>
@@ -31,11 +33,9 @@ class App extends Component {
         {this.state.isLoggedIn ? (
           ""
         ) : (
-          <Login
-            value={this.state.username}
-            onClick={() => this.handleLoginClick()}
-          />
+          <Login value={userName} onValChange={this.handleLoginClick} />
         )}
+
         {/* show the Timer component next along with previous High Scores*/}
         {this.state.isLoggedIn ? <Timer value={this.state.username} /> : null}
         {this.state.isLoggedIn ? <HighScores /> : null}
