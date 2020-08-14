@@ -281,19 +281,6 @@ textarea {
   box-sizing: border-box;
 }
 
-.visuallyHidden:not(:focus):not(:active) {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(00 0 0);
-  overflow: hidden;
-}
-
 /* setup styles */
 
 html {
@@ -349,7 +336,7 @@ ul li {
 }
 
 /* styles for the App component */
-.appComponent nav {
+.appComponent nav h1 {
   background-color: #ff785a;
   color: #fafafa;
 }
@@ -468,10 +455,11 @@ ul li {
   text-transform: uppercase;
 }
 
-.scoreComponent ul li p {
+.scoreComponent ul li p,
+.scoreComponent p {
   color: #191919;
   padding-left: 3rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: left;
 }
 
@@ -487,5 +475,67 @@ ul li {
 
   100% {
     transform: scale(0.93);
+  }
+}
+
+/* media queries commence */
+
+@media (max-width: 920px) {
+  .appComponent nav h1 {
+    font-size: 2.5rem;
+  }
+
+  .loginComponent ul li {
+    font-size: 2.3rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .appComponent nav h1 {
+    font-size: 2rem;
+  }
+
+  .loginComponent ul {
+    list-style: none;
+  }
+
+  .loginComponent ul li {
+    font-size: 2.1rem;
+    text-align: center;
+  }
+
+  .loginComponent input[type="text"] {
+    padding: 1rem;
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .appComponent nav h1 {
+    font-size: 1.6rem;
+  }
+
+  .loginComponent ul li {
+    font-size: 1.8rem;
+  }
+
+  .loginComponent input[type="text"] {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .loginComponent input[type="text"] {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .loginComponent input[type="text"] {
+    font-size: 1.3rem;
+  }
+
+  .loginComponent button {
+    font-size: 2.5rem;
   }
 }

@@ -51,7 +51,7 @@ class HighScores extends Component {
             );
           })}
         </ul>
-        <h3>Note: Top 10 scores appear in real-time in the list above</h3>​ ​
+        <p>Note: Top 10 scores appear in real-time in the list above</p>​ ​
       </div>
     );
   }
