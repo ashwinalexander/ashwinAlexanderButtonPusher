@@ -1,71 +1,43 @@
 import React, { Component } from "react";
-import Login from "./Login";
 import "./App.css";
+import Login from "./Login";
 import Timer from "./Timer";
 import HighScores from "./HighScores";
-
-//pseudo code
-//component 1: take in name, provide instructions, press START, pass name to component 2
-//component 2: start countdown timer, start function that has 1 bot running and counting down
-//component 2: whenever user clicks, pass name and time to database
-//component 3: connect to database, retrieve high scores.
-
-//logic:
-//1 on page load, show instructions, ask for name, get user to submit
-//2 on button click, hide component 1, pass name to component 2
-//2 start timer function but assign it a value it will reset at and say "an impatient bot clicked!"
-//3 on button click, show a color with name in high scores - connect to databse and retrieve
-
-// Pseudo code
-// component1  - take in name, provide instructions, click submit and pass name as a prop to component 2
-// component2  - timer, "click" button, bots running in bg
-// component3 - high scores, pull from database show in real-time,
-//  logic:
-//  1. On page load - component 1 appears:
-//  - ask for name with textbox
-//  - show instructions
-//  - show ready to play button
-//  - on click save name to state, hide the first component and show the second component
-//  2. Show timer that counts down, show click button, trigger bot that counts down to random number
-//  3. on click, by bot, start bot again
-//  4  on click, by human, end game, save score to db and show high scores along with team name.
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       username: "",
-      isLoggedIn: true,
+      isLoggedIn: false,
     };
   }
 
+  //set isLoggedIn to true after a name has been entered
   handleLoginClick() {
-    this.setState({ isLoggedIn: true });
+    this.setState({
+      isLoggedIn: true,
+      username: this.state.username,
+    });
   }
 
-  componentDidMount() {
-    // const dbRef = firebase.database().ref();
-    // dbRef.on('value', (snapshot) => {
-    //   const data = snapshot.val();
-    //   const newBooksArray = [];
-    //   for (let propertyName in data) {
-    //     newBooksArray.push(data[propertyName]);
-    //   }
-    //   console.log(newBooksArray);
-    //   this.setState({
-    //     books: newBooksArray
-    //   })
-    // })
-  }
+  componentDidMount() {}
 
   render() {
     return (
       <div className="App wrapper">
-        <h1>the button header</h1>
+        <h1>Welcome to The Button</h1>
         {/* show the login component on page load and if the name hasn't been entered*/}
-        {this.state.isLoggedIn ? "" : <Login />}
+        {this.state.isLoggedIn ? (
+          ""
+        ) : (
+          <Login
+            value={this.state.username}
+            onClick={() => this.handleLoginClick()}
+          />
+        )}
         {/* show the Timer component next along with previous High Scores*/}
-        {this.state.isLoggedIn ? <Timer /> : null}
+        {this.state.isLoggedIn ? <Timer value={this.state.username} /> : null}
         {this.state.isLoggedIn ? <HighScores /> : null}
       </div>
     );

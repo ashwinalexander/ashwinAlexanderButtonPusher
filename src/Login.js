@@ -8,12 +8,12 @@ class Login extends Component {
     };
   }
 
-  handleClick = () => {
-    this.setState({
-      // visitors: this.state.visitors +1;
-      userName: "",
-    });
-  };
+  // handleChange = (event) => {
+  //   this.setState({
+  //     {this.props.text}: event.target.value,
+
+  //   });
+  // };
 
   render() {
     return (
@@ -31,14 +31,15 @@ class Login extends Component {
             <label htmlFor="playerName">Enter Name:</label>
             {/* use anonymous functions if passing arguments */}
             <input
-              onChange={this.handleChange}
-              value={this.state.userName}
+              //onChange={this.handleChange}
               placeholder="enter name"
+              // value={this.props.value}
+              value={this.props.text}
               type="text"
               id="playerName"
               required
             />
-            <button onClick={this.handleClick}>START</button>
+            <button onClick={this.props.onClick}>START</button>
           </form>
         </div>
       </div>
