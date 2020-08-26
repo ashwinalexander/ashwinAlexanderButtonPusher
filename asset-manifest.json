@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/ashwinAlexanderButtonPusher/static/css/main.9fee446e.chunk.css",
-    "main.js": "/ashwinAlexanderButtonPusher/static/js/main.e90f91e7.chunk.js",
-    "main.js.map": "/ashwinAlexanderButtonPusher/static/js/main.e90f91e7.chunk.js.map",
-    "runtime-main.js": "/ashwinAlexanderButtonPusher/static/js/runtime-main.61bcc9ee.js",
-    "runtime-main.js.map": "/ashwinAlexanderButtonPusher/static/js/runtime-main.61bcc9ee.js.map",
-    "static/js/2.e0b88455.chunk.js": "/ashwinAlexanderButtonPusher/static/js/2.e0b88455.chunk.js",
-    "static/js/2.e0b88455.chunk.js.map": "/ashwinAlexanderButtonPusher/static/js/2.e0b88455.chunk.js.map",
-    "index.html": "/ashwinAlexanderButtonPusher/index.html",
-    "precache-manifest.3c5b1083f5a9a8e6532a0b29ec3dce93.js": "/ashwinAlexanderButtonPusher/precache-manifest.3c5b1083f5a9a8e6532a0b29ec3dce93.js",
-    "service-worker.js": "/ashwinAlexanderButtonPusher/service-worker.js",
-    "static/css/main.9fee446e.chunk.css.map": "/ashwinAlexanderButtonPusher/static/css/main.9fee446e.chunk.css.map",
-    "static/js/2.e0b88455.chunk.js.LICENSE.txt": "/ashwinAlexanderButtonPusher/static/js/2.e0b88455.chunk.js.LICENSE.txt"
+    "main.css": "/the-button/static/css/main.9fee446e.chunk.css",
+    "main.js": "/the-button/static/js/main.e90f91e7.chunk.js",
+    "main.js.map": "/the-button/static/js/main.e90f91e7.chunk.js.map",
+    "runtime-main.js": "/the-button/static/js/runtime-main.7b806d00.js",
+    "runtime-main.js.map": "/the-button/static/js/runtime-main.7b806d00.js.map",
+    "static/js/2.0474deb7.chunk.js": "/the-button/static/js/2.0474deb7.chunk.js",
+    "static/js/2.0474deb7.chunk.js.map": "/the-button/static/js/2.0474deb7.chunk.js.map",
+    "index.html": "/the-button/index.html",
+    "precache-manifest.343185450dc668f0aa7df9a4df348a22.js": "/the-button/precache-manifest.343185450dc668f0aa7df9a4df348a22.js",
+    "service-worker.js": "/the-button/service-worker.js",
+    "static/css/main.9fee446e.chunk.css.map": "/the-button/static/css/main.9fee446e.chunk.css.map",
+    "static/js/2.0474deb7.chunk.js.LICENSE.txt": "/the-button/static/js/2.0474deb7.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.61bcc9ee.js",
-    "static/js/2.e0b88455.chunk.js",
+    "static/js/runtime-main.7b806d00.js",
+    "static/js/2.0474deb7.chunk.js",
     "static/css/main.9fee446e.chunk.css",
     "static/js/main.e90f91e7.chunk.js"
   ]
